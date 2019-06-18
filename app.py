@@ -18,21 +18,28 @@ def fallback():
     return statement("You can ask for the latest bench, or for a random bench, or find out how many benches there are.")
 
 @ask.intent("LatestBench")
-def prescription_cost():
-    return statement("The latest bench is...")
+def latest_bench():
+    r = requests.get('https://test.openbenches.org/api/v1.0/alexa.json/?format=raw&latest', headers=headers)
+    r.encoding='utf-8-sig'
+    j = json.loads(r.text)
+    s = j["speech"]
+    return statement(s)
 
 @ask.intent("RandomBench")
-def prescription_cost():
+def random_bench():
     r = requests.get('https://test.openbenches.org/api/v1.0/alexa.json/?format=raw&random', headers=headers)
     r.encoding='utf-8-sig'
-    print(r.text)
     j = json.loads(r.text)
     s = j["speech"]
     return statement(s)
 
 @ask.intent("HowMany")
-def prescription_cost():
-    return statement("Five hundred and fifty five.")
+def count_bench():
+    r = requests.get('https://test.openbenches.org/api/v1.0/alexa.json/?format=raw&count', headers=headers)
+    r.encoding='utf-8-sig'
+    j = json.loads(r.text)
+    s = j["speech"]
+    return statement(s)
 
 
 if __name__ == "__main__":
