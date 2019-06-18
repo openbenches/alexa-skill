@@ -1,11 +1,13 @@
 import os
 from flask import Flask, render_template, request
 from flask_ask import Ask, statement, question, session
-import json, urllib.request
+import json, requests
 
 
 app = Flask(__name__)
 ask = Ask(app, '/')
+
+headers = {'User-Agent': 'My User Agent 1.0'}
 
 @ask.launch
 def launched():
@@ -21,7 +23,9 @@ def prescription_cost():
 
 @ask.intent("RandomBench")
 def prescription_cost():
-    return statement("Some Bench details")
+    r = requests.get('https://test.openbenches.org/api/v1.0/alexa.json/?format=raw&random', headers=headers)
+    s = r.json()["speech"]
+    return statement(s)
 
 @ask.intent("HowMany")
 def prescription_cost():
