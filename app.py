@@ -1,7 +1,7 @@
 import os
 from flask import Flask, render_template, request
 from flask_ask import Ask, statement, question, session
-import json, requests
+import requests
 
 
 app = Flask(__name__)
@@ -24,6 +24,7 @@ def prescription_cost():
 @ask.intent("RandomBench")
 def prescription_cost():
     r = requests.get('https://test.openbenches.org/api/v1.0/alexa.json/?format=raw&random', headers=headers)
+    print(r.text)
     s = r.json()["speech"]
     return statement(s)
 
