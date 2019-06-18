@@ -13,11 +13,19 @@ def launched():
 
 @ask.intent("AMAZON.FallbackIntent")
 def fallback():
-    return statement("You can ask for the latest bench, or for a random bench.")
+    return statement("You can ask for the latest bench, or for a random bench, or find out how many benches there are.")
 
-@ask.intent("PrescriptionCosts")
+@ask.intent("LatestBench")
 def prescription_cost():
-    return statement("The prescription charge in England is £9.00 per item.")
+    return statement("The latest bench is...")
+
+@ask.intent("RandomBench")
+def prescription_cost():
+    return statement("Some Bench details")
+
+@ask.intent("HowMany")
+def prescription_cost():
+    return statement("Five hundred and fifty five.")
 
 
 if __name__ == "__main__":
