@@ -40,6 +40,14 @@ def count_bench():
     s = j["speech"]
     return statement(s)
 
+@ask.intent("AMAZON.StopIntent")
+def stop():
+    return statement("Have a nice day!)
+
+@ask.intent("AMAZON.CancelIntent")
+def stop():
+    return statement("Bye-bye!)
+
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
