@@ -3,11 +3,10 @@ from flask import Flask, render_template, request
 from flask_ask import Ask, statement, question, session
 import requests, json
 
-
 app = Flask(__name__)
 ask = Ask(app, '/')
 
-headers = {'User-Agent': 'My User Agent 1.0'}
+headers = {'User-Agent': 'Alexa Skill'}
 
 @ask.launch
 def launched():
@@ -40,7 +39,6 @@ def count_bench():
     j = json.loads(r.text)
     s = j["speech"]
     return statement(s)
-
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
