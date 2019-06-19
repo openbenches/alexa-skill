@@ -12,9 +12,13 @@ headers = {'User-Agent': 'Alexa Skill'}
 def launched():
     return question('Welcome to Open Benches. What would you like to know?')
 
+@ask.intent("AMAZON.HelpIntent")
+def help():
+    return question("You can ask for the latest bench, or for a random bench, or find out how many benches there are.")
+
 @ask.intent("AMAZON.FallbackIntent")
 def fallback():
-    return statement("You can ask for the latest bench, or for a random bench, or find out how many benches there are.")
+    return question("You can ask for the latest bench, or for a random bench, or find out how many benches there are.")
 
 @ask.intent("LatestBench")
 def latest_bench():
