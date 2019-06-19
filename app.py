@@ -18,7 +18,7 @@ def fallback():
 
 @ask.intent("LatestBench")
 def latest_bench():
-    r = requests.get('https://test.openbenches.org/api/v1.0/alexa.json/?format=raw&latest', headers=headers)
+    r = requests.get('https://openbenches.org/api/v1.0/alexa.json/?format=raw&latest', headers=headers)
     r.encoding='utf-8-sig'
     j = json.loads(r.text)
     s = j["speech"]
@@ -26,7 +26,7 @@ def latest_bench():
 
 @ask.intent("RandomBench")
 def random_bench():
-    r = requests.get('https://test.openbenches.org/api/v1.0/alexa.json/?format=raw&random', headers=headers)
+    r = requests.get('https://openbenches.org/api/v1.0/alexa.json/?format=raw&random', headers=headers)
     r.encoding='utf-8-sig'
     j = json.loads(r.text)
     s = j["speech"]
@@ -34,7 +34,7 @@ def random_bench():
 
 @ask.intent("HowMany")
 def count_bench():
-    r = requests.get('https://test.openbenches.org/api/v1.0/alexa.json/?format=raw&count', headers=headers)
+    r = requests.get('https://openbenches.org/api/v1.0/alexa.json/?format=raw&count', headers=headers)
     r.encoding='utf-8-sig'
     j = json.loads(r.text)
     s = j["speech"]
