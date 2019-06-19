@@ -42,11 +42,11 @@ def count_bench():
 
 @ask.intent("AMAZON.StopIntent")
 def stop():
-    return statement("Have a nice day!)
+    return statement("Have a nice day!")
 
 @ask.intent("AMAZON.CancelIntent")
 def stop():
-    return statement("Bye-bye!)
+    return statement("Bye-bye!")
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
