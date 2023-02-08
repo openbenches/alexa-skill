@@ -1,7 +1,7 @@
 Flask==1.0.2
 req
 flask-ask
-cryptography==3.2
+cryptography==39.0.1
 pyOpenSSL==18.0.0
 requests==2.22.0
 untangle==1.2.1
