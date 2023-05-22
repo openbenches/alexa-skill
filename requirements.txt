@@ -3,6 +3,6 @@ req
 flask-ask
 cryptography==39.0.1
 pyOpenSSL==18.0.0
-requests==2.22.0
+requests==2.31.0
 untangle==1.2.1
 html2text==2018.1.9
